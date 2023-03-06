@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/styles/index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <include src="src/components/appbar.html"></include>
+    <div class="container max-w-[50%] mx-auto">
+      <div class="my-10">
+        <include src="src/components/addtodo.html"></include>
+      </div>
+      <div id="todo-list" class="w-full">
+        <include src="src/components/list.html"></include>
+      </div>
+    </div>
+    <script type="module" src="./todo.js"></script>
+  </body>
+</html>
