@@ -12,8 +12,24 @@ xmlns="http://www.w3.org/2000/svg"
 ></path>
 </svg>`;
 
-export const editIcon = `<svg
-class="flex-shrink-0 w-6 h-6 text-blue-500 hover:cursor-pointer border-2 border-transparent rounded-md hover:border-gray-200"
+export const getConfirmIcon = (id) => `
+<svg
+class="todo-confirm-icon flex-shrink-0 w-8 h-8 text-green-500 dark:text-green-400 hover:cursor-pointer border-2 border-transparent rounded-md hover:border-gray-200"
+data-task-id=${id}
+fill="currentColor"
+viewBox="0 0 20 20"
+xmlns="http://www.w3.org/2000/svg"
+>
+<path
+  fill-rule="evenodd"
+  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+  clip-rule="evenodd"
+></path>
+</svg>`;
+
+export const getEditIcon = (id) => `<svg
+class="todo-edit-icon flex-shrink-0 w-6 h-6 text-blue-500 hover:cursor-pointer border-2 border-transparent rounded-md hover:border-gray-200"
+data-task-id=${id}
 fill="none"
 stroke="currentColor"
 stroke-width="1.5"
