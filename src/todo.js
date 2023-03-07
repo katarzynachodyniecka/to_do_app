@@ -17,23 +17,20 @@ addTodoBtnEl.addEventListener("click", () => {
   renderToDo();
 });
 
-const tasks = [
-  { id: 1, text: "Text #1", complete: true, isEditing: false },
-  { id: 2, text: "Text #2", complete: true, isEditing: false },
-  { id: 3, text: "Text #3", complete: false, isEditing: false },
-  { id: 4, text: "Text #4", complete: true, isEditing: false },
-  { id: 5, text: "Text #5", complete: false, isEditing: false },
-  { id: 6, text: "Text #6", complete: true, isEditing: false },
-];
+const dataFromLocalStorage = localStorage.getItem("todos");
+
+const tasks = dataFromLocalStorage ? JSON.parse(dataFromLocalStorage) : [];
+
 const renderToDo = () => {
   todoListEl.innerHTML = tasks
     .map(
       (task) => `
+      <div class="text-gray-900 divide-y divide-gray-200">
   <div class="flex items-center">
-    <div class="mr-4">
+    <div class="mr-3">
       ${checkIcon}
     </div>
-    <div class="flex py-4 w-[50%]">
+    <div class="flex py-2 w-[50%]">
     ${
       task.isEditing
         ? `<input id="confirm-btn-${task.id}" value=${task.text} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5>`
@@ -43,8 +40,9 @@ const renderToDo = () => {
     <div class="flex ml-auto gap-4">
       ${task.isEditing ? getConfirmIcon(task.id) : getEditIcon(task.id)}
       ${getDeleteIcon(task.id)}
-    </div>
   </div>
+    </div><hr class="min-w-max h-1 mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700">
+    </div>
   `
     )
     .join("");
@@ -76,6 +74,8 @@ const renderToDo = () => {
       renderToDo();
     });
   });
+
+  localStorage.setItem("todos", JSON.stringify(tasks));
 };
 
 renderToDo();
@@ -117,11 +117,3 @@ const onEditMode = (id) => {
     isEditing: true,
   };
 };
-
-//-----
-addTask("testujemy funkcje #1");
-addTask("testujemy funkcje #2");
-deleteTask(3);
-editTask({ id: 4, text: "Text #4 - został podmieniony", complete: true });
-
-renderToDo();
