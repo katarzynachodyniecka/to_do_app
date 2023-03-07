@@ -8,13 +8,13 @@
   <body>
     <include src="src/components/appbar.html"></include>
     <div class="container max-w-[50%] mx-auto">
-      <div class="my-10">
+      <div class="w-[50%] py-4 mx-auto my-10">
         <include src="src/components/addtodo.html"></include>
       </div>
-      <div id="todo-list" class="w-full">
-        <include src="src/components/list.html"></include>
+      <div id="todo-list" class="mx-auto w-[50%]">
+        <div class="text-gray-900 divide-y divide-gray-200"></div>
       </div>
-      <script type="module" src="src/todo.js"></script>
     </div>
+    <script type="module" src="src/todo.js"></script>
   </body>
 </html>

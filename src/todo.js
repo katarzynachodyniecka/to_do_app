@@ -25,7 +25,7 @@ const renderToDo = () => {
   todoListEl.innerHTML = tasks
     .map(
       (task) => `
-      <div class="text-gray-900 divide-y divide-gray-200">
+      
   <div class="flex items-center">
     <div class="mr-3">
       ${checkIcon}
@@ -41,7 +41,7 @@ const renderToDo = () => {
       ${task.isEditing ? getConfirmIcon(task.id) : getEditIcon(task.id)}
       ${getDeleteIcon(task.id)}
   </div>
-    </div><hr class="min-w-max h-1 mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700">
+    </div><hr class="min-w-max h-0.5 mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700">
     </div>
   `
     )
